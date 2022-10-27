@@ -1,0 +1,15 @@
+Команды для git:
+git init
+
+git config —global user.name "Your Name" # указать имя
+git config —global user.email "e@w.com"
+
+git add .
+
+git commit -m "first"
+
+git branch Session-1
+
+git remote add origin https//...ссылка на репозиторийй
+
+git push -u origin Session-1
