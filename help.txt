@@ -1,0 +1,106 @@
+//В самом начале добавляем в Gradle
+id 'kotlin-android-extensions'
+
+
+//Код для перехода между экранами
+Handler(Looper.getMainLooper()).postDelayed({
+val intent = Intent(this, EnterYourHouse::class.java)
+startActivity(intent)
+}, 3000)
+
+Частый вопрос, что подчёркивается красным:
+Просто нажимаете сочетаение клавишь Alt + Enter,
+Enter и всё исправляется
+
+
+Важно. Чтобы дизайн засчитали - надо обязательно убрать верхнюю полоску, которая по умолчанию добавлена
+Для этого в themes (темах) меняем на
+Theme.AppCompat.Light.NoActionBar
+и добавляем
+<item name="android:windowFullscreen">true</item>
+
+
+
+Добавляем контейнер для Логина и пароля:
+Res —> Drowable —> New Resourse file
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<solid android:color="#70ffffff"/>
+<corners android:radius="16dp"/>
+
+</shape>
+
+
+Второй экран:
+
+<FrameLayout
+android:layout_width="340dp"
+android:layout_height="170dp"
+android:layout_marginTop="370dp"
+android:background="@drawable/bgfon10"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.492"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent">
+
+</FrameLayout>
+
+
+<FrameLayout
+android:layout_width="260dp"
+android:layout_height="48dp"
+android:layout_marginTop="28dp"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.497"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+android:background="@drawable/btn1">
+
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Enter Your House"
+android:textColor="#fff"
+android:layout_gravity="center"
+android:textSize="17dp"/>
+
+</FrameLayout>
+
+<FrameLayout
+android:layout_width="260dp"
+android:layout_height="48dp"
+android:layout_marginTop="100dp"
+android:background="@drawable/btn2"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.496"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+<TextView
+android:id="@+id/textView2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:text="New Resident"
+android:textColor="#fff"
+android:textSize="17dp" />
+
+</FrameLayout>
+
+
+На нашу кнопку добавляем id - button1
+Что бы можно было через код обращаться к этой кнопке
+
+Экран регистрации просто копируем такоей же, и чуть чуть изменяем исходя из задания (делаем контейнер чуть больше и добавляем новое поле)
+
+button1.setOnClickListener{
+val intent1 = Intent(this, NewResident::class.java)
+startActivity(intent1)
+}
+
+Переход на другой экран осуществляется так
+после this, "Указываем имя экрана, куда нужно перейти, нажимая на кнопку"
+
+
